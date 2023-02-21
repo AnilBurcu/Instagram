@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zYk-cs-Jfs">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -118,7 +119,7 @@
         <scene sceneID="myx-eb-K53">
             <objects>
                 <navigationController id="uES-tX-aAt" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="bell" catalog="system" id="v9F-7u-OC2"/>
+                    <tabBarItem key="tabBarItem" title="" image="heart" catalog="system" id="v9F-7u-OC2"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tjf-iR-dUc">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -197,7 +198,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bell" catalog="system" width="125" height="128"/>
+        <image name="heart" catalog="system" width="128" height="107"/>
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="person" catalog="system" width="128" height="121"/>

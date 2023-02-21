@@ -8,7 +8,9 @@
 import SafariServices
 import UIKit
 
+
 class LoginViewController: UIViewController {
+
     
     struct Constants {
         static let cornerRadius: CGFloat = 8.0
@@ -178,6 +180,39 @@ class LoginViewController: UIViewController {
         }
         
         // login functionality
+        
+        var username:String?
+        var email:String?
+        
+        if usernameEmail.contains("@"), usernameEmail.contains("."){
+            //email
+            email = usernameEmail
+        }
+        else {
+            //username
+            username = usernameEmail
+        }
+        AuthManager.shared.loginUser(username: username,
+                                     email: email,
+                                     password: password) {success in
+            
+            DispatchQueue.main.async {
+                if success {
+                    // user login
+                    self.dismiss(animated: true,completion: nil)
+                }
+                else {
+                    // error occured
+                    let alert = UIAlertController(title: "Log in error", message: "We are unable to log you in", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+                    self.present(alert, animated: true)
+                    
+                }
+            }
+            
+            
+        }
+        
     }
     @objc private func didTapTermsButton(){
         guard let url = URL(string: "https://help.instagram.com/581066165581870") else {
@@ -197,7 +232,8 @@ class LoginViewController: UIViewController {
     }
     @objc private func didTapCreateAccountButton(){
         let vc = RegistrationViewController()
-        present(vc, animated: true)
+        vc.title = "Create Account"
+        present(UINavigationController(rootViewController: vc), animated: true)
     }
     
 }

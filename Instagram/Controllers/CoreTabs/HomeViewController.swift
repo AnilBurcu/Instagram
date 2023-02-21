@@ -19,6 +19,8 @@ class HomeViewController: UIViewController {
         super.viewDidAppear(animated)
         
         handleNotAuthenticated()
+        
+   
     }
     
         
