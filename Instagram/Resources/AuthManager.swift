@@ -72,6 +72,8 @@ public class AuthManager {
         }
         else if let username = username {
             //username login
+            
+            
             print(username)
         }
     }

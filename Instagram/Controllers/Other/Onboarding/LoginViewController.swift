@@ -16,6 +16,8 @@ class LoginViewController: UIViewController {
         static let cornerRadius: CGFloat = 8.0
     }
     
+    // Definition of objects on screen.
+    
     private let usernameEmailField : UITextField = {
         let field = UITextField()
         field.placeholder = "Username or Email"
@@ -102,7 +104,7 @@ class LoginViewController: UIViewController {
         
         view.backgroundColor = .systemBackground
         
-        // Do any additional setup after loading the view.
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -114,6 +116,7 @@ class LoginViewController: UIViewController {
                                   y: 0,
                                   width: view.width,
                                   height: view.height/3.0)
+        
         
         usernameEmailField.frame = CGRect(x: 25,
                                           y: headerView.bottom + 40,
