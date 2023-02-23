@@ -13,6 +13,7 @@ final class ProfileViewController: UIViewController {
 
     private var collectionView: UICollectionView?
     
+    private var userPosts = [UserPost]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +31,7 @@ final class ProfileViewController: UIViewController {
         
         collectionView = UICollectionView(frame: .zero,collectionViewLayout: layout)
         
-        collectionView?.backgroundColor = .red
+        
         
         // Cell
         collectionView?.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewCell.identifier)
@@ -73,16 +74,27 @@ extension ProfileViewController: UICollectionViewDelegate,UICollectionViewDataSo
         if section == 0 {
             return 0
         }
+       // return userPosts.count
         return 30
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        //let model = userPosts[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifier, for: indexPath) as! PhotoCollectionViewCell
+        
+        //cell.configure(with: model)
         
         cell.configure(debug: "test")
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
+        
+        // Get the model and post controller
+        //let model = userPosts[indexPath.row]
+        let vc = PostViewController(model: nil)
+        vc.title = "Post"
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
     }
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
@@ -94,10 +106,14 @@ extension ProfileViewController: UICollectionViewDelegate,UICollectionViewDataSo
             // tabs header
             let tabControlHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ProfileTabsCollectionReusableView.identifier, for: indexPath) as! ProfileTabsCollectionReusableView
             
+            tabControlHeader.delegate = self
+            
             return tabControlHeader
             
         }
         let profileheader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: ProfileInfoHeaderCollectionReusableView.identifier, for: indexPath) as! ProfileInfoHeaderCollectionReusableView
+        
+        profileheader.delegate = self
         
         return profileheader
     }
@@ -108,6 +124,62 @@ extension ProfileViewController: UICollectionViewDelegate,UICollectionViewDataSo
             
         }
         // Size of section tabs
-        return CGSize(width: collectionView.width, height: 65)
+        return CGSize(width: collectionView.width, height: 50)
     }
+}
+
+//Mark: ProfileInfoHeaderCollectionReusableViewDelegate
+
+extension ProfileViewController:ProfileInfoHeaderCollectionReusableViewDelegate{
+    func profileHeaderDidTapPostsButton(_ header: ProfileInfoHeaderCollectionReusableView) {
+        // scroll to the posts
+        collectionView?.scrollToItem(at: IndexPath(row: 0, section: 1), at: .top, animated: true)
+    }
+    
+    func profileHeaderDidTapFollowersButton(_ header: ProfileInfoHeaderCollectionReusableView) {
+        
+        var mockData = [UserRelationship]()
+        
+        for x in 0..<10 {
+            mockData.append(UserRelationship(username: "@joe", name: "Joe Smith",type: x % 2 == 0 ? .following:.not_following ))
+        }
+        let vc = ListViewController(data: mockData)
+        vc.title = "Followers"
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
+    func profileHeaderDidTapFollowingButton(_ header: ProfileInfoHeaderCollectionReusableView) {
+        var mockData = [UserRelationship]()
+        
+        for x in 0..<10 {
+            mockData.append(UserRelationship(username: "@joe", name: "Joe Smith",type: x % 2 == 0 ? .following:.not_following ))
+        }
+        let vc = ListViewController(data: mockData)
+        vc.title = "Following"
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func profileHeaderDidTapEditProfileButton(_ header: ProfileInfoHeaderCollectionReusableView) {
+        let vc = EditProfileViewController()
+        vc.title = "Edit Profile"
+        present(UINavigationController(rootViewController: vc),animated: true)
+    }
+    
+    
+}
+ // Grid ve Tag butonlarına işlev kazandırmak için onları bulunduğu yerde (profile VC ) de önceden oluşturduğumuz protokolü extension ettik
+
+extension ProfileViewController : ProfileTabsCollectionReusableViewDelegate{
+    func didTapGridButton() {
+        // Reload collection view with data
+    }
+    
+    func didTapTaggedButton() {
+        // Reload collection view with data
+    }
+    
+    
 }
