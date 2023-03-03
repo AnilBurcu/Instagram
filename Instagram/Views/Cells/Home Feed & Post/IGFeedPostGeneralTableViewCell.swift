@@ -1,5 +1,5 @@
 //
-//  IGFeedPostTableViewCell.swift
+//  IGFeedPostGeneralTableViewCell.swift
 //  Instagram
 //
 //  Created by Anıl Bürcü on 22.02.2023.
@@ -7,11 +7,15 @@
 
 import UIKit
 
-final class IGFeedPostTableViewCell: UITableViewCell {
+/// Comments
+
+class IGFeedPostGeneralTableViewCell: UITableViewCell {
     
-    static let identifier = "IGFeedPostTableViewCell"
+    static let identifier = "IGFeedPostGeneralTableViewCell"
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        contentView.backgroundColor = .systemOrange
     }
     
     public func configure(){
@@ -22,5 +26,7 @@ final class IGFeedPostTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+    }
 }
