@@ -24,9 +24,10 @@
 		1859C8E129CB1903000E2BD3 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859C8E029CB1903000E2BD3 /* Notification.swift */; };
 		1859C8E329CB191F000E2BD3 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859C8E229CB191F000E2BD3 /* AuthManager.swift */; };
 		1859C8E529CB1932000E2BD3 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859C8E429CB1932000E2BD3 /* DatabaseManager.swift */; };
-		1859C8E729CB193A000E2BD3 /* Storagemanager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859C8E629CB193A000E2BD3 /* Storagemanager.swift */; };
+		1859C8E729CB193A000E2BD3 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859C8E629CB193A000E2BD3 /* StorageManager.swift */; };
 		1859C8E929CB1949000E2BD3 /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859C8E829CB1949000E2BD3 /* AnalyticsManager.swift */; };
 		1859C8EB29CB1954000E2BD3 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859C8EA29CB1954000E2BD3 /* Haptics.swift */; };
+		1859C8ED29CB20D9000E2BD3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1859C8EC29CB20D9000E2BD3 /* GoogleService-Info.plist */; };
 		187C461D29CB115D0030A73A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C461C29CB115D0030A73A /* AppDelegate.swift */; };
 		187C461F29CB115D0030A73A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C461E29CB115D0030A73A /* SceneDelegate.swift */; };
 		187C462129CB115D0030A73A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C462029CB115D0030A73A /* HomeViewController.swift */; };
@@ -54,9 +55,10 @@
 		1859C8E029CB1903000E2BD3 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		1859C8E229CB191F000E2BD3 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		1859C8E429CB1932000E2BD3 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
-		1859C8E629CB193A000E2BD3 /* Storagemanager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storagemanager.swift; sourceTree = "<group>"; };
+		1859C8E629CB193A000E2BD3 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		1859C8E829CB1949000E2BD3 /* AnalyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
 		1859C8EA29CB1954000E2BD3 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
+		1859C8EC29CB20D9000E2BD3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		187C461929CB115D0030A73A /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		187C461C29CB115D0030A73A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		187C461E29CB115D0030A73A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,7 +122,7 @@
 			children = (
 				1859C8E229CB191F000E2BD3 /* AuthManager.swift */,
 				1859C8E429CB1932000E2BD3 /* DatabaseManager.swift */,
-				1859C8E629CB193A000E2BD3 /* Storagemanager.swift */,
+				1859C8E629CB193A000E2BD3 /* StorageManager.swift */,
 				1859C8E829CB1949000E2BD3 /* AnalyticsManager.swift */,
 				1859C8EA29CB1954000E2BD3 /* Haptics.swift */,
 			);
@@ -130,6 +132,7 @@
 		1859C8C129CB14D0000E2BD3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1859C8EC29CB20D9000E2BD3 /* GoogleService-Info.plist */,
 				187C462529CB115D0030A73A /* Assets.xcassets */,
 				187C461C29CB115D0030A73A /* AppDelegate.swift */,
 				187C461E29CB115D0030A73A /* SceneDelegate.swift */,
@@ -274,6 +277,7 @@
 			files = (
 				187C462929CB115D0030A73A /* LaunchScreen.storyboard in Resources */,
 				187C462629CB115D0030A73A /* Assets.xcassets in Resources */,
+				1859C8ED29CB20D9000E2BD3 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,7 +334,7 @@
 				1859C8CC29CB182E000E2BD3 /* TabBarViewController.swift in Sources */,
 				1859C8E129CB1903000E2BD3 /* Notification.swift in Sources */,
 				1859C8D529CB1898000E2BD3 /* ListViewController.swift in Sources */,
-				1859C8E729CB193A000E2BD3 /* Storagemanager.swift in Sources */,
+				1859C8E729CB193A000E2BD3 /* StorageManager.swift in Sources */,
 				1859C8D729CB18A1000E2BD3 /* PostViewController.swift in Sources */,
 				1859C8C329CB17D1000E2BD3 /* ExploreViewController.swift in Sources */,
 				1859C8C529CB17DF000E2BD3 /* CameraViewController.swift in Sources */,
