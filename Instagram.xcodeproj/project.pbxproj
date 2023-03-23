@@ -33,6 +33,9 @@
 		187C462129CB115D0030A73A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C462029CB115D0030A73A /* HomeViewController.swift */; };
 		187C462629CB115D0030A73A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 187C462529CB115D0030A73A /* Assets.xcassets */; };
 		187C462929CB115D0030A73A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 187C462729CB115D0030A73A /* LaunchScreen.storyboard */; };
+		18D19BC029CB2E9100017DA2 /* SignInHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D19BBF29CB2E9100017DA2 /* SignInHeaderView.swift */; };
+		18D19BC229CB2F6D00017DA2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D19BC129CB2F6D00017DA2 /* Extensions.swift */; };
+		18D19BC429CB338B00017DA2 /* IGTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D19BC329CB338B00017DA2 /* IGTextField.swift */; };
 		62E76A55B343777ED8C8A602 /* Pods_Instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19DF617AD705BA3B563F8013 /* Pods_Instagram.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +69,10 @@
 		187C462529CB115D0030A73A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		187C462829CB115D0030A73A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		187C462A29CB115D0030A73A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18D19BBF29CB2E9100017DA2 /* SignInHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInHeaderView.swift; sourceTree = "<group>"; };
+		18D19BC129CB2F6D00017DA2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		18D19BC329CB338B00017DA2 /* IGTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGTextField.swift; sourceTree = "<group>"; };
+		18D19BC629CB432F00017DA2 /* Instagram.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Instagram.entitlements; sourceTree = "<group>"; };
 		19DF617AD705BA3B563F8013 /* Pods_Instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA8C8E7AFCFA956297340752 /* Pods-Instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.debug.xcconfig"; path = "Target Support Files/Pods-Instagram/Pods-Instagram.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,6 +102,8 @@
 			isa = PBXGroup;
 			children = (
 				187C462729CB115D0030A73A /* LaunchScreen.storyboard */,
+				18D19BBF29CB2E9100017DA2 /* SignInHeaderView.swift */,
+				18D19BC329CB338B00017DA2 /* IGTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -136,6 +145,7 @@
 				187C462529CB115D0030A73A /* Assets.xcassets */,
 				187C461C29CB115D0030A73A /* AppDelegate.swift */,
 				187C461E29CB115D0030A73A /* SceneDelegate.swift */,
+				18D19BC129CB2F6D00017DA2 /* Extensions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -187,6 +197,7 @@
 		187C461B29CB115D0030A73A /* Instagram */ = {
 			isa = PBXGroup;
 			children = (
+				18D19BC629CB432F00017DA2 /* Instagram.entitlements */,
 				1859C8C129CB14D0000E2BD3 /* Resources */,
 				1859C8C029CB14C6000E2BD3 /* Managers */,
 				1859C8BF29CB14BE000E2BD3 /* ViewModels */,
@@ -343,12 +354,15 @@
 				1859C8D129CB187C000E2BD3 /* SignUpViewController.swift in Sources */,
 				1859C8DB29CB18DC000E2BD3 /* User.swift in Sources */,
 				1859C8C729CB17E7000E2BD3 /* NotificationsViewController.swift in Sources */,
+				18D19BC029CB2E9100017DA2 /* SignInHeaderView.swift in Sources */,
 				1859C8D929CB18AF000E2BD3 /* SettingsViewController.swift in Sources */,
+				18D19BC429CB338B00017DA2 /* IGTextField.swift in Sources */,
 				1859C8E529CB1932000E2BD3 /* DatabaseManager.swift in Sources */,
 				1859C8DF29CB18F1000E2BD3 /* Relationship.swift in Sources */,
 				1859C8DD29CB18E3000E2BD3 /* Post.swift in Sources */,
 				1859C8E329CB191F000E2BD3 /* AuthManager.swift in Sources */,
 				1859C8CF29CB185E000E2BD3 /* SignInViewController.swift in Sources */,
+				18D19BC229CB2F6D00017DA2 /* Extensions.swift in Sources */,
 				1859C8C929CB17F0000E2BD3 /* ProfileViewController.swift in Sources */,
 				187C461D29CB115D0030A73A /* AppDelegate.swift in Sources */,
 				187C461F29CB115D0030A73A /* SceneDelegate.swift in Sources */,
@@ -490,6 +504,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Instagram/Instagram.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V834C37N47;
@@ -524,6 +539,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Instagram/Instagram.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V834C37N47;
