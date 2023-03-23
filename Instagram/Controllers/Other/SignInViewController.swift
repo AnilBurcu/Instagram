@@ -145,6 +145,19 @@ class SignInViewController: UIViewController,UITextFieldDelegate {
             return
         }
         // Sign in with authManager
+        
+        AuthManager.shared.signIn(email: email, password: password) {[weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success:
+                    let vc = TabBarViewController()
+                    vc.modalPresentationStyle = .fullScreen
+                    self?.present(vc,animated: true)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
     }
     @objc func didTapCreateAccount() {
         let vc = SignUpViewController()
