@@ -28,6 +28,19 @@
 		1859C8E929CB1949000E2BD3 /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859C8E829CB1949000E2BD3 /* AnalyticsManager.swift */; };
 		1859C8EB29CB1954000E2BD3 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859C8EA29CB1954000E2BD3 /* Haptics.swift */; };
 		1859C8ED29CB20D9000E2BD3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1859C8EC29CB20D9000E2BD3 /* GoogleService-Info.plist */; };
+		185A4BD429CDA4D5003B2D21 /* PosterCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185A4BD329CDA4D5003B2D21 /* PosterCollectionViewCellViewModel.swift */; };
+		185A4BD629CDA542003B2D21 /* PostCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185A4BD529CDA542003B2D21 /* PostCollectionViewCellViewModel.swift */; };
+		185A4BD829CDA583003B2D21 /* PostActionsCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185A4BD729CDA583003B2D21 /* PostActionsCollectionViewCellViewModel.swift */; };
+		185A4BDA29CDA5AB003B2D21 /* PostLikesCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185A4BD929CDA5AB003B2D21 /* PostLikesCollectionViewCellViewModel.swift */; };
+		185A4BDC29CDA5ED003B2D21 /* PostCaptionCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185A4BDB29CDA5ED003B2D21 /* PostCaptionCollectionViewCellViewModel.swift */; };
+		185A4BDE29CDA618003B2D21 /* PostDateTimeCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185A4BDD29CDA618003B2D21 /* PostDateTimeCollectionViewCellViewModel.swift */; };
+		185A4BE029CDA6B2003B2D21 /* HomeFeedCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185A4BDF29CDA6B2003B2D21 /* HomeFeedCellType.swift */; };
+		185A4BE329CDAAF6003B2D21 /* PosterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185A4BE229CDAAF6003B2D21 /* PosterCollectionViewCell.swift */; };
+		185A4BE529CDAB97003B2D21 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185A4BE429CDAB97003B2D21 /* PostCollectionViewCell.swift */; };
+		185A4BE929CDABCD003B2D21 /* PostActionsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185A4BE829CDABCD003B2D21 /* PostActionsCollectionViewCell.swift */; };
+		185A4BEB29CDABF3003B2D21 /* PostLikesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185A4BEA29CDABF3003B2D21 /* PostLikesCollectionViewCell.swift */; };
+		185A4BED29CDAC05003B2D21 /* PostCaptionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185A4BEC29CDAC05003B2D21 /* PostCaptionCollectionViewCell.swift */; };
+		185A4BEF29CDAC0E003B2D21 /* PostDateTimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185A4BEE29CDAC0E003B2D21 /* PostDateTimeCollectionViewCell.swift */; };
 		187C461D29CB115D0030A73A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C461C29CB115D0030A73A /* AppDelegate.swift */; };
 		187C461F29CB115D0030A73A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C461E29CB115D0030A73A /* SceneDelegate.swift */; };
 		187C462129CB115D0030A73A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C462029CB115D0030A73A /* HomeViewController.swift */; };
@@ -62,6 +75,19 @@
 		1859C8E829CB1949000E2BD3 /* AnalyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
 		1859C8EA29CB1954000E2BD3 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 		1859C8EC29CB20D9000E2BD3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		185A4BD329CDA4D5003B2D21 /* PosterCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
+		185A4BD529CDA542003B2D21 /* PostCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
+		185A4BD729CDA583003B2D21 /* PostActionsCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostActionsCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
+		185A4BD929CDA5AB003B2D21 /* PostLikesCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLikesCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
+		185A4BDB29CDA5ED003B2D21 /* PostCaptionCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCaptionCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
+		185A4BDD29CDA618003B2D21 /* PostDateTimeCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDateTimeCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
+		185A4BDF29CDA6B2003B2D21 /* HomeFeedCellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedCellType.swift; sourceTree = "<group>"; };
+		185A4BE229CDAAF6003B2D21 /* PosterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterCollectionViewCell.swift; sourceTree = "<group>"; };
+		185A4BE429CDAB97003B2D21 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
+		185A4BE829CDABCD003B2D21 /* PostActionsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostActionsCollectionViewCell.swift; sourceTree = "<group>"; };
+		185A4BEA29CDABF3003B2D21 /* PostLikesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLikesCollectionViewCell.swift; sourceTree = "<group>"; };
+		185A4BEC29CDAC05003B2D21 /* PostCaptionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCaptionCollectionViewCell.swift; sourceTree = "<group>"; };
+		185A4BEE29CDAC0E003B2D21 /* PostDateTimeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDateTimeCollectionViewCell.swift; sourceTree = "<group>"; };
 		187C461929CB115D0030A73A /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		187C461C29CB115D0030A73A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		187C461E29CB115D0030A73A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +127,7 @@
 		1859C8BD29CB14B2000E2BD3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				185A4BE129CDAADE003B2D21 /* Home Cells */,
 				187C462729CB115D0030A73A /* LaunchScreen.storyboard */,
 				18D19BBF29CB2E9100017DA2 /* SignInHeaderView.swift */,
 				18D19BC329CB338B00017DA2 /* IGTextField.swift */,
@@ -115,6 +142,7 @@
 				1859C8DC29CB18E3000E2BD3 /* Post.swift */,
 				1859C8DE29CB18F1000E2BD3 /* Relationship.swift */,
 				1859C8E029CB1903000E2BD3 /* Notification.swift */,
+				185A4BDF29CDA6B2003B2D21 /* HomeFeedCellType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -122,6 +150,12 @@
 		1859C8BF29CB14BE000E2BD3 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				185A4BD329CDA4D5003B2D21 /* PosterCollectionViewCellViewModel.swift */,
+				185A4BD529CDA542003B2D21 /* PostCollectionViewCellViewModel.swift */,
+				185A4BD729CDA583003B2D21 /* PostActionsCollectionViewCellViewModel.swift */,
+				185A4BD929CDA5AB003B2D21 /* PostLikesCollectionViewCellViewModel.swift */,
+				185A4BDB29CDA5ED003B2D21 /* PostCaptionCollectionViewCellViewModel.swift */,
+				185A4BDD29CDA618003B2D21 /* PostDateTimeCollectionViewCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -174,6 +208,19 @@
 				1859C8D829CB18AF000E2BD3 /* SettingsViewController.swift */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		185A4BE129CDAADE003B2D21 /* Home Cells */ = {
+			isa = PBXGroup;
+			children = (
+				185A4BE229CDAAF6003B2D21 /* PosterCollectionViewCell.swift */,
+				185A4BE429CDAB97003B2D21 /* PostCollectionViewCell.swift */,
+				185A4BE829CDABCD003B2D21 /* PostActionsCollectionViewCell.swift */,
+				185A4BEA29CDABF3003B2D21 /* PostLikesCollectionViewCell.swift */,
+				185A4BEC29CDAC05003B2D21 /* PostCaptionCollectionViewCell.swift */,
+				185A4BEE29CDAC0E003B2D21 /* PostDateTimeCollectionViewCell.swift */,
+			);
+			path = "Home Cells";
 			sourceTree = "<group>";
 		};
 		187C461029CB115D0030A73A = {
@@ -342,12 +389,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				1859C8D329CB1889000E2BD3 /* CaptionViewController.swift in Sources */,
+				185A4BEB29CDABF3003B2D21 /* PostLikesCollectionViewCell.swift in Sources */,
 				1859C8CC29CB182E000E2BD3 /* TabBarViewController.swift in Sources */,
 				1859C8E129CB1903000E2BD3 /* Notification.swift in Sources */,
 				1859C8D529CB1898000E2BD3 /* ListViewController.swift in Sources */,
 				1859C8E729CB193A000E2BD3 /* StorageManager.swift in Sources */,
+				185A4BE529CDAB97003B2D21 /* PostCollectionViewCell.swift in Sources */,
 				1859C8D729CB18A1000E2BD3 /* PostViewController.swift in Sources */,
 				1859C8C329CB17D1000E2BD3 /* ExploreViewController.swift in Sources */,
+				185A4BE929CDABCD003B2D21 /* PostActionsCollectionViewCell.swift in Sources */,
 				1859C8C529CB17DF000E2BD3 /* CameraViewController.swift in Sources */,
 				1859C8E929CB1949000E2BD3 /* AnalyticsManager.swift in Sources */,
 				187C462129CB115D0030A73A /* HomeViewController.swift in Sources */,
@@ -355,18 +405,28 @@
 				1859C8DB29CB18DC000E2BD3 /* User.swift in Sources */,
 				1859C8C729CB17E7000E2BD3 /* NotificationsViewController.swift in Sources */,
 				18D19BC029CB2E9100017DA2 /* SignInHeaderView.swift in Sources */,
+				185A4BDE29CDA618003B2D21 /* PostDateTimeCollectionViewCellViewModel.swift in Sources */,
 				1859C8D929CB18AF000E2BD3 /* SettingsViewController.swift in Sources */,
 				18D19BC429CB338B00017DA2 /* IGTextField.swift in Sources */,
 				1859C8E529CB1932000E2BD3 /* DatabaseManager.swift in Sources */,
+				185A4BD629CDA542003B2D21 /* PostCollectionViewCellViewModel.swift in Sources */,
+				185A4BE029CDA6B2003B2D21 /* HomeFeedCellType.swift in Sources */,
+				185A4BDA29CDA5AB003B2D21 /* PostLikesCollectionViewCellViewModel.swift in Sources */,
 				1859C8DF29CB18F1000E2BD3 /* Relationship.swift in Sources */,
 				1859C8DD29CB18E3000E2BD3 /* Post.swift in Sources */,
 				1859C8E329CB191F000E2BD3 /* AuthManager.swift in Sources */,
+				185A4BDC29CDA5ED003B2D21 /* PostCaptionCollectionViewCellViewModel.swift in Sources */,
 				1859C8CF29CB185E000E2BD3 /* SignInViewController.swift in Sources */,
 				18D19BC229CB2F6D00017DA2 /* Extensions.swift in Sources */,
 				1859C8C929CB17F0000E2BD3 /* ProfileViewController.swift in Sources */,
+				185A4BD829CDA583003B2D21 /* PostActionsCollectionViewCellViewModel.swift in Sources */,
+				185A4BEF29CDAC0E003B2D21 /* PostDateTimeCollectionViewCell.swift in Sources */,
 				187C461D29CB115D0030A73A /* AppDelegate.swift in Sources */,
 				187C461F29CB115D0030A73A /* SceneDelegate.swift in Sources */,
+				185A4BE329CDAAF6003B2D21 /* PosterCollectionViewCell.swift in Sources */,
+				185A4BD429CDA4D5003B2D21 /* PosterCollectionViewCellViewModel.swift in Sources */,
 				1859C8EB29CB1954000E2BD3 /* Haptics.swift in Sources */,
+				185A4BED29CDAC05003B2D21 /* PostCaptionCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
