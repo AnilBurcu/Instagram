@@ -17,6 +17,17 @@ final class DatabaseManager {
     
     let database = Firestore.firestore()
     
+    public func post(for username: String, completion: @escaping (Result <[Post],Error>) -> Void){
+        let ref = database.collection("user").document(username).collection("posts")
+        ref.getDocuments {snapshot, error in
+            guard let posts = snapshot?.documents.compactMap({ Post(with: $0.data())
+                
+            }),
+                  error == nil else {return}
+            completion(.success(posts))
+        }
+    }
+    
     /// Find user with username
     /// - Parameters:
     ///   - username: Source username
@@ -33,6 +44,22 @@ final class DatabaseManager {
 
             let user = users.first(where: { $0.email == email })
             completion(user)
+        }
+    }
+    
+    public func createPost(newPost: Post,completion: @escaping(Bool)->Void){
+        guard let username = UserDefaults.standard.string(forKey: "username")else {
+            completion(false)
+            return
+        }
+        let reference = database.document("user/\(username)/posts/\(newPost.id)")
+        guard let data = newPost.asDictionary() else {
+            completion(false)
+            return
+        }
+        
+        reference.setData(data) {error in
+            completion(error == nil)
         }
     }
     

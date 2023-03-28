@@ -41,6 +41,8 @@
 		185A4BEB29CDABF3003B2D21 /* PostLikesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185A4BEA29CDABF3003B2D21 /* PostLikesCollectionViewCell.swift */; };
 		185A4BED29CDAC05003B2D21 /* PostCaptionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185A4BEC29CDAC05003B2D21 /* PostCaptionCollectionViewCell.swift */; };
 		185A4BEF29CDAC0E003B2D21 /* PostDateTimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185A4BEE29CDAC0E003B2D21 /* PostDateTimeCollectionViewCell.swift */; };
+		1863380C29D2FE840009D94F /* PostEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1863380B29D2FE840009D94F /* PostEditViewController.swift */; };
+		1863380E29D306CB0009D94F /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1863380D29D306CB0009D94F /* PhotoCollectionViewCell.swift */; };
 		187C461D29CB115D0030A73A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C461C29CB115D0030A73A /* AppDelegate.swift */; };
 		187C461F29CB115D0030A73A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C461E29CB115D0030A73A /* SceneDelegate.swift */; };
 		187C462129CB115D0030A73A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C462029CB115D0030A73A /* HomeViewController.swift */; };
@@ -88,6 +90,8 @@
 		185A4BEA29CDABF3003B2D21 /* PostLikesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLikesCollectionViewCell.swift; sourceTree = "<group>"; };
 		185A4BEC29CDAC05003B2D21 /* PostCaptionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCaptionCollectionViewCell.swift; sourceTree = "<group>"; };
 		185A4BEE29CDAC0E003B2D21 /* PostDateTimeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDateTimeCollectionViewCell.swift; sourceTree = "<group>"; };
+		1863380B29D2FE840009D94F /* PostEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEditViewController.swift; sourceTree = "<group>"; };
+		1863380D29D306CB0009D94F /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		187C461929CB115D0030A73A /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		187C461C29CB115D0030A73A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		187C461E29CB115D0030A73A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +135,7 @@
 				187C462729CB115D0030A73A /* LaunchScreen.storyboard */,
 				18D19BBF29CB2E9100017DA2 /* SignInHeaderView.swift */,
 				18D19BC329CB338B00017DA2 /* IGTextField.swift */,
+				1863380D29D306CB0009D94F /* PhotoCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -206,6 +211,7 @@
 				1859C8D429CB1898000E2BD3 /* ListViewController.swift */,
 				1859C8D629CB18A1000E2BD3 /* PostViewController.swift */,
 				1859C8D829CB18AF000E2BD3 /* SettingsViewController.swift */,
+				1863380B29D2FE840009D94F /* PostEditViewController.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -414,6 +420,7 @@
 				185A4BDA29CDA5AB003B2D21 /* PostLikesCollectionViewCellViewModel.swift in Sources */,
 				1859C8DF29CB18F1000E2BD3 /* Relationship.swift in Sources */,
 				1859C8DD29CB18E3000E2BD3 /* Post.swift in Sources */,
+				1863380C29D2FE840009D94F /* PostEditViewController.swift in Sources */,
 				1859C8E329CB191F000E2BD3 /* AuthManager.swift in Sources */,
 				185A4BDC29CDA5ED003B2D21 /* PostCaptionCollectionViewCellViewModel.swift in Sources */,
 				1859C8CF29CB185E000E2BD3 /* SignInViewController.swift in Sources */,
@@ -422,6 +429,7 @@
 				185A4BD829CDA583003B2D21 /* PostActionsCollectionViewCellViewModel.swift in Sources */,
 				185A4BEF29CDAC0E003B2D21 /* PostDateTimeCollectionViewCell.swift in Sources */,
 				187C461D29CB115D0030A73A /* AppDelegate.swift in Sources */,
+				1863380E29D306CB0009D94F /* PhotoCollectionViewCell.swift in Sources */,
 				187C461F29CB115D0030A73A /* SceneDelegate.swift in Sources */,
 				185A4BE329CDAAF6003B2D21 /* PosterCollectionViewCell.swift in Sources */,
 				185A4BD429CDA4D5003B2D21 /* PosterCollectionViewCellViewModel.swift in Sources */,

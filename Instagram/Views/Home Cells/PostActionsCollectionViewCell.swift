@@ -93,10 +93,10 @@ class PostActionsCollectionViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        let size:CGFloat = contentView.height/1.18
+        let size:CGFloat = contentView.height/1.2
         likeButton.frame = CGRect(x: 10, y: (contentView.height-size), width: size+5, height: size)
-        commentButton.frame = CGRect(x: likeButton.right+30, y: (contentView.height-size), width: size+2, height: size)
-        shareButton.frame = CGRect(x: commentButton.right+30, y: (contentView.height-size), width: size+2, height: size)
+        commentButton.frame = CGRect(x: likeButton.right+20, y: (contentView.height-size), width: size+2, height: size)
+        shareButton.frame = CGRect(x: commentButton.right+20, y: (contentView.height-size), width: size+2, height: size)
         
     }
     override func prepareForReuse() {
