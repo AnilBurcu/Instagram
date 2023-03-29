@@ -53,13 +53,13 @@ class PostCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc func didDoubleTapToLike(){
+    @objc func didDoubleTapToLike() {
         heartImageView.isHidden = false
-        UIView.animate(withDuration: 0.4) {
+        UIView.animate(withDuration: 0.6) {
             self.heartImageView.alpha = 1
         } completion: { done in
             if done {
-                UIView.animate(withDuration: 0.6) {
+                UIView.animate(withDuration: 0.4) {
                     self.heartImageView.alpha = 0
                 } completion: { done in
                     if done {
@@ -68,6 +68,7 @@ class PostCollectionViewCell: UICollectionViewCell {
                 }
             }
         }
+        
 
         delegate?.postCollectionViewCellDidLike(self)
     }

@@ -48,6 +48,7 @@
 		187C462129CB115D0030A73A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C462029CB115D0030A73A /* HomeViewController.swift */; };
 		187C462629CB115D0030A73A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 187C462529CB115D0030A73A /* Assets.xcassets */; };
 		187C462929CB115D0030A73A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 187C462729CB115D0030A73A /* LaunchScreen.storyboard */; };
+		18ACF43629D4213E00B5CFC5 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACF43529D4213E00B5CFC5 /* SearchResultsViewController.swift */; };
 		18D19BC029CB2E9100017DA2 /* SignInHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D19BBF29CB2E9100017DA2 /* SignInHeaderView.swift */; };
 		18D19BC229CB2F6D00017DA2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D19BC129CB2F6D00017DA2 /* Extensions.swift */; };
 		18D19BC429CB338B00017DA2 /* IGTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D19BC329CB338B00017DA2 /* IGTextField.swift */; };
@@ -99,6 +100,7 @@
 		187C462529CB115D0030A73A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		187C462829CB115D0030A73A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		187C462A29CB115D0030A73A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18ACF43529D4213E00B5CFC5 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		18D19BBF29CB2E9100017DA2 /* SignInHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInHeaderView.swift; sourceTree = "<group>"; };
 		18D19BC129CB2F6D00017DA2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		18D19BC329CB338B00017DA2 /* IGTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGTextField.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				1859C8D629CB18A1000E2BD3 /* PostViewController.swift */,
 				1859C8D829CB18AF000E2BD3 /* SettingsViewController.swift */,
 				1863380B29D2FE840009D94F /* PostEditViewController.swift */,
+				18ACF43529D4213E00B5CFC5 /* SearchResultsViewController.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				18D19BC029CB2E9100017DA2 /* SignInHeaderView.swift in Sources */,
 				185A4BDE29CDA618003B2D21 /* PostDateTimeCollectionViewCellViewModel.swift in Sources */,
 				1859C8D929CB18AF000E2BD3 /* SettingsViewController.swift in Sources */,
+				18ACF43629D4213E00B5CFC5 /* SearchResultsViewController.swift in Sources */,
 				18D19BC429CB338B00017DA2 /* IGTextField.swift in Sources */,
 				1859C8E529CB1932000E2BD3 /* DatabaseManager.swift in Sources */,
 				185A4BD629CDA542003B2D21 /* PostCollectionViewCellViewModel.swift in Sources */,
