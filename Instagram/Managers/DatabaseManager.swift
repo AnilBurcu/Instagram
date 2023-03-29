@@ -97,7 +97,7 @@ final class DatabaseManager {
     
     /// Gets posts for explore page
     /// - Parameter completion: Result callback
-    public func explorePosts(completion: @escaping ([Post]) -> Void) {
+    public func explorePosts(completion: @escaping ([(post: Post, user: User)]) -> Void) {
         let ref = database.collection("user")
         ref.getDocuments { snapshot, error in
             guard let users = snapshot?.documents.compactMap({ User(with: $0.data()) }),
@@ -107,13 +107,13 @@ final class DatabaseManager {
             }
 
             let group = DispatchGroup()
-            var aggregatePosts = [Post]()
+            var aggregatePosts = [(post: Post, user: User)]()
 
             users.forEach { user in
                 group.enter()
 
                 let username = user.username
-                let postsRef = self.database.collection("user/\(username)/posts")
+                let postsRef = self.database.collection("users/\(username)/posts")
 
                 postsRef.getDocuments { snapshot, error in
 
@@ -127,7 +127,7 @@ final class DatabaseManager {
                     }
 
                     aggregatePosts.append(contentsOf: posts.compactMap({
-                        ($0)
+                        (post: $0, user: user)
                     }))
                 }
             }
