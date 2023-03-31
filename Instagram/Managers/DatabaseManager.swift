@@ -37,6 +37,7 @@ final class DatabaseManager {
         }
     }
     
+
     public func post(for username: String, completion: @escaping (Result <[Post],Error>) -> Void){
         let ref = database.collection("user").document(username).collection("posts")
         ref.getDocuments {snapshot, error in
@@ -63,6 +64,21 @@ final class DatabaseManager {
             }
 
             let user = users.first(where: { $0.email == email })
+            completion(user)
+        }
+    }
+    
+    public func findUser(username: String, completion: @escaping (User?) -> Void) {
+        let ref = database.collection("user")
+        ref.getDocuments { snapshot, error in
+            
+            guard let users = snapshot?.documents.compactMap({ User(with: $0.data()) }),
+                  error == nil else {
+                completion(nil)
+                return
+            }
+
+            let user = users.first(where: { $0.username == username })
             completion(user)
         }
     }
@@ -136,6 +152,117 @@ final class DatabaseManager {
                 completion(aggregatePosts)
             }
         }
+    }
+    
+    /// Get notifications for current user
+    /// - Parameter completion: Result callback
+    public func getNotifications(
+        completion: @escaping ([IGNotification]) -> Void
+    ) {
+        guard let username = UserDefaults.standard.string(forKey: "username") else {
+            completion([])
+            return
+        }
+        let ref = database.collection("user").document(username).collection("notifications")
+        ref.getDocuments { snapshot, error in
+            guard let notifications = snapshot?.documents.compactMap({
+                IGNotification(with: $0.data())
+            }),
+            error == nil else {
+                completion([])
+                return
+            }
+
+            completion(notifications)
+        }
+    }
+    
+    /// Creates new notification
+    /// - Parameters:
+    ///   - identifer: New notification ID
+    ///   - data: Notification data
+    ///   - username: target username
+    public func insertNotification(
+        identifier: String,
+        data: [String: Any],
+        for username: String
+    ) {
+        let ref = database.collection("user")
+            .document(username)
+            .collection("notifications")
+            .document(identifier)
+        ref.setData(data)
+    }
+    
+    public func getPost(
+        with identifier:String,
+        from username: String,
+        completion: @escaping (Post?)-> Void
+    ){
+        let ref = database.collection("user")
+            .document(username)
+            .collection("posts")
+            .document(identifier)
+        ref.getDocument { snapshot, error in
+            guard let data = snapshot?.data(),
+    
+                  error == nil else {
+                completion(nil)
+                
+                return
+            }
+            completion(Post(with: data))
+        }
+        
+        
+    }
+    
+    enum RelationShipState:String {
+        case follow
+        case unfollow
+    }
+    
+    // Follow - Unfollow
+    
+    public func updateRelationship(state: RelationShipState,
+                                   for targetUsername:String,
+                                   completion: @escaping (Bool)->Void
+    ){
+        
+        guard let currentUsername = UserDefaults.standard.string(forKey: "username") else {
+            return
+        }
+
+        
+        let currentFollowing = database.collection("user")
+            .document(currentUsername)
+            .collection("following")
+        
+        let targetUserFollowers = database.collection("user")
+            .document(targetUsername)
+            .collection("followers")
+        
+
+            
+        switch state {
+        case .unfollow:
+            // Remove follower for requester following list
+            currentFollowing.document(targetUsername).delete()
+            // Remove follower from targetUser followrs list
+            targetUserFollowers.document(currentUsername).delete()
+            
+            completion(true)
+            break
+        case .follow:
+            // Add follower for requester following list
+            currentFollowing.document(targetUsername).setData(["valid":"1"])
+            // Add follower to targetUser followrs list
+            targetUserFollowers.document(currentUsername).setData(["valid":"1"])
+            
+            completion(true)
+            break
+        }
+        
     }
     
 }

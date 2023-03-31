@@ -16,6 +16,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
+        
+         //Add dummy notification for current user
+//        let id = NotificationManager.newIdentifier()
+//        let model = IGNotification(
+//            identifier: id,
+//            notificationType: 1,
+//            profilePictureUrl: "https://iosacademy.io/assets/images/brand/icon.jpg",
+//            username: "lebronJames",
+//            dateString: String.date(from: Date()) ?? "Now",
+//            isFollowing: true,
+//            postId: "9989",
+//            postUrl: "https://iosacademy.io/assets/images/brand/icon.jpg"
+//        )
+//        NotificationManager.shared.create(notification: model, for: "deneme")
+
         return true
     }
 
