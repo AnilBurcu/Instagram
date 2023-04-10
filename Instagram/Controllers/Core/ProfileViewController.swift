@@ -15,6 +15,10 @@ class ProfileViewController: UIViewController {
     }
     private var collectionView: UICollectionView?
     
+    private var headerViewModel: ProfileHeaderViewModel?
+    
+    private var posts: [Post] = []
+    
     // MARK: Init
     
     init(user:User) {
@@ -46,28 +50,91 @@ class ProfileViewController: UIViewController {
         collectionView?.frame = view.bounds
     }
     
-    private func fetchProfileInfo(){
-        // Counts (3)
-        
-        
-        
-        // Bio, name
-        
-        
-        
-        // Profile picture URL
-        StorageManager.shared.profilePictureURL(for: user.username) { url in
-            
+    private func fetchProfileInfo() {
+//        guard let username = UserDefaults.standard.string(forKey: "username") else {
+//            return
+//        }
+        let username = user.username
+
+        let group = DispatchGroup()
+
+        // Fetch Posts
+        group.enter()
+        DatabaseManager.shared.post(for: username) { [weak self] result in
+            defer {
+                group.leave()
+            }
+
+            switch result {
+            case .success(let posts):
+                self?.posts = posts
+            case .failure:
+                break
+            }
         }
-        
-        
-        // If profile is not for current user, get follow state
+
+        // Fetch Profile Header Info
+
+        var profilePictureUrl: URL?
+        var buttonType: profileButtonType = .edit
+        var followers = 0
+        var following = 0
+        var posts = 0
+        var name: String?
+        var bio: String?
+
+        // Counts (3)
+        group.enter()
+        DatabaseManager.shared.getUserCounts(username: user.username) { result in
+            defer {
+                group.leave()
+            }
+            posts = result.posts
+            followers = result.followers
+            following = result.following
+        }
+
+
+        // Bio, name
+        DatabaseManager.shared.getUserInfo(username: user.username) { userInfo in
+            name = userInfo?.name
+            bio = userInfo?.bio
+        }
+
+        // Profile picture url
+        group.enter()
+        StorageManager.shared.profilePictureURL(for: user.username) { url in
+            defer {
+                group.leave()
+            }
+            profilePictureUrl = url
+        }
+
+        // if profile is not for current user,
         if !isCurrenUser {
             // Get follow state
-            
+            group.enter()
+            DatabaseManager.shared.isFollowing(targetUsername: user.username) { isFollowing in
+                defer {
+                    group.leave()
+                }
+                print(isFollowing)
+                buttonType = .follow(isFollowing: isFollowing)
+            }
         }
-        
-        
+
+        group.notify(queue: .main) {
+            self.headerViewModel = ProfileHeaderViewModel(
+                profilePictureUrl: profilePictureUrl,
+                followerCount: followers,
+                followingCount: following,
+                postCount: posts,
+                buttonType: buttonType,
+                name: name,
+                bio: bio
+            )
+            self.collectionView?.reloadData()
+        }
     }
 
     
@@ -93,14 +160,14 @@ class ProfileViewController: UIViewController {
 
 extension ProfileViewController:UICollectionViewDelegate,UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return posts.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifier, for: indexPath) as? PhotoCollectionViewCell else {
             fatalError()
         }
-        cell.configure(with: UIImage(named: "test"))
+        cell.configure(with: URL(string: posts[indexPath.row].postUrlString))
         return cell
     }
     
@@ -114,16 +181,11 @@ extension ProfileViewController:UICollectionViewDelegate,UICollectionViewDataSou
             return UICollectionReusableView()
         }
         
-        let viewModel = ProfileHeaderViewModel(
-            profilePictureUrl: nil,
-            followerCount: 200,
-            followingCount: 120,
-            postCount: 43,
-            buttonType: self.isCurrenUser ? .edit : .follow(isFollowing: true),
-            name: "IOS ANL",
-            bio: "This is test profile")
-        headerView.configure(with: viewModel)
-        headerView.countContainerView.delegate = self
+        if let viewModel = headerViewModel {
+            headerView.configure(with: viewModel)
+            headerView.countContainerView.delegate = self
+        }
+        
         
         return headerView
     }
@@ -131,9 +193,9 @@ extension ProfileViewController:UICollectionViewDelegate,UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         
-//        let post = posts[indexPath.row]
-//        let vc = PostViewController(post: post)
-//        navigationController?.pushViewController(vc, animated: true)
+        let post = posts[indexPath.row]
+        let vc = PostViewController(post: post)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -151,7 +213,13 @@ extension ProfileViewController:ProfileHeaderCountViewDelegate {
     }
     
     func profileHeaderCountDidTapEditProfile(_ containerView: ProfileHeaderCountView) {
-        
+        let vc = EditProfileViewController()
+        vc.completion = { [weak self] in
+            self?.headerViewModel = nil
+            self?.fetchProfileInfo()
+        }
+        let navVC = UINavigationController(rootViewController: vc)
+        present(navVC, animated: true)
     }
     
     func profileHeaderCountDidTapFollow(_ containerView: ProfileHeaderCountView) {

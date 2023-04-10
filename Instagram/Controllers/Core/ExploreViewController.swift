@@ -173,9 +173,9 @@ extension ExploreViewController: UICollectionViewDelegate,UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
+//        collectionView.deselectItem(at: indexPath, animated: true)
 //        let post = posts[indexPath.row]
-//        let vc = PostViewController(post: post,user: post.user)
+//        let vc = PostViewController(post: post)
 //        navigationController?.pushViewController(vc, animated: true)
     }
 }

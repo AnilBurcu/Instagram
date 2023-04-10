@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		183190D029E4357300FDDF5D /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183190CF29E4357300FDDF5D /* UserInfo.swift */; };
+		183190D229E4370F00FDDF5D /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183190D129E4370F00FDDF5D /* EditProfileViewController.swift */; };
 		1859C8C329CB17D1000E2BD3 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859C8C229CB17D1000E2BD3 /* ExploreViewController.swift */; };
 		1859C8C529CB17DF000E2BD3 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859C8C429CB17DF000E2BD3 /* CameraViewController.swift */; };
 		1859C8C729CB17E7000E2BD3 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859C8C629CB17E7000E2BD3 /* NotificationsViewController.swift */; };
@@ -68,6 +70,8 @@
 /* Begin PBXFileReference section */
 		0030BF651F8C1A29C13B05D5 /* Pods_Instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A5FD8F33FD830B528739A0F /* Pods-Instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.release.xcconfig"; path = "Target Support Files/Pods-Instagram/Pods-Instagram.release.xcconfig"; sourceTree = "<group>"; };
+		183190CF29E4357300FDDF5D /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		183190D129E4370F00FDDF5D /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		1859C8C229CB17D1000E2BD3 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		1859C8C429CB17DF000E2BD3 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		1859C8C629CB17E7000E2BD3 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
@@ -174,6 +178,7 @@
 				1859C8E029CB1903000E2BD3 /* Notification.swift */,
 				185A4BDF29CDA6B2003B2D21 /* HomeFeedCellType.swift */,
 				18F7902A29D4489500D55755 /* NotificationCelltype.swift */,
+				183190CF29E4357300FDDF5D /* UserInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -243,6 +248,7 @@
 				1859C8D829CB18AF000E2BD3 /* SettingsViewController.swift */,
 				1863380B29D2FE840009D94F /* PostEditViewController.swift */,
 				18ACF43529D4213E00B5CFC5 /* SearchResultsViewController.swift */,
+				183190D129E4370F00FDDF5D /* EditProfileViewController.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -461,6 +467,7 @@
 				1859C8D929CB18AF000E2BD3 /* SettingsViewController.swift in Sources */,
 				18ACF43629D4213E00B5CFC5 /* SearchResultsViewController.swift in Sources */,
 				18ACF43F29D440A200B5CFC5 /* NotificationManager.swift in Sources */,
+				183190D229E4370F00FDDF5D /* EditProfileViewController.swift in Sources */,
 				188F84D429DC4C6D0012C3A6 /* ProfileHeaderCountViewViewModel.swift in Sources */,
 				18D19BC429CB338B00017DA2 /* IGTextField.swift in Sources */,
 				1859C8E529CB1932000E2BD3 /* DatabaseManager.swift in Sources */,
@@ -479,6 +486,7 @@
 				1859C8C929CB17F0000E2BD3 /* ProfileViewController.swift in Sources */,
 				185A4BD829CDA583003B2D21 /* PostActionsCollectionViewCellViewModel.swift in Sources */,
 				185A4BEF29CDAC0E003B2D21 /* PostDateTimeCollectionViewCell.swift in Sources */,
+				183190D029E4357300FDDF5D /* UserInfo.swift in Sources */,
 				187C461D29CB115D0030A73A /* AppDelegate.swift in Sources */,
 				1863380E29D306CB0009D94F /* PhotoCollectionViewCell.swift in Sources */,
 				187C461F29CB115D0030A73A /* SceneDelegate.swift in Sources */,

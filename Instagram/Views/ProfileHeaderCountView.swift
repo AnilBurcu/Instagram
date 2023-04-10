@@ -22,6 +22,8 @@ class ProfileHeaderCountView: UIView {
     
     private var action = profileButtonType.edit
     
+    private var isFollowing = false
+    
     // Count Buttons
     
     private let followerCountButton: UIButton = {
@@ -119,6 +121,8 @@ class ProfileHeaderCountView: UIView {
                 // follow
                 delegate?.profileHeaderCountDidTapFollow(self)
             }
+            self.isFollowing = !isFollowing
+            updateFollowButton()
         }
     }
     
@@ -149,19 +153,23 @@ class ProfileHeaderCountView: UIView {
             
             
         case .follow(let isFollowing):
-            actionButton.backgroundColor = isFollowing ? .systemBackground : .systemBlue
-            actionButton.setTitle(isFollowing ? "Unfollow": "Follow", for: .normal)
-            actionButton.setTitleColor(isFollowing ? .label : .white, for: .normal)
-            
-            if isFollowing {
-                actionButton.layer.borderWidth = 0.5
-                actionButton.layer.borderColor = UIColor.tertiaryLabel.cgColor
-            }
-            else {
-                actionButton.layer.borderWidth = 0
-            }
+            self.isFollowing = isFollowing
+            updateFollowButton()
             
             
+        }
+    }
+    private func updateFollowButton() {
+        actionButton.backgroundColor = isFollowing ? .systemBackground : .systemBlue
+        actionButton.setTitle(isFollowing ? "Unfollow": "Follow", for: .normal)
+        actionButton.setTitleColor(isFollowing ? .label : .white, for: .normal)
+        
+        if isFollowing {
+            actionButton.layer.borderWidth = 0.5
+            actionButton.layer.borderColor = UIColor.tertiaryLabel.cgColor
+        }
+        else {
+            actionButton.layer.borderWidth = 0
         }
     }
 }
