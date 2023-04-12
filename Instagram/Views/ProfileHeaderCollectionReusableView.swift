@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol ProfileHeaderCollectionReusableViewDelegate:AnyObject {
+    func profileHeaderCollectionReusableViewDidTapProfilePicture(_ header:ProfileHeaderCollectionReusableView)
+}
+
 class ProfileHeaderCollectionReusableView: UICollectionReusableView {
         
     static let identifier = "ProfileHeaderCollectionReusableView"
@@ -14,6 +18,7 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
+        imageView.isUserInteractionEnabled = true
         imageView.clipsToBounds = true
         imageView.layer.masksToBounds = true
         imageView.backgroundColor = .secondarySystemBackground
@@ -23,6 +28,8 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
     }()
     
 
+    weak var delegate:ProfileHeaderCollectionReusableViewDelegate?
+    
     public let countContainerView = ProfileHeaderCountView()
     
     private let bioLabel: UILabel = {
@@ -44,6 +51,12 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
         addSubview(imageView)
         addSubview(bioLabel)
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(didTapImage))
+        imageView.addGestureRecognizer(tap)
+    }
+    
+    @objc private func didTapImage(){
+        delegate?.profileHeaderCollectionReusableViewDidTapProfilePicture(self)
     }
     
     override func layoutSubviews() {

@@ -186,7 +186,7 @@ extension ProfileViewController:UICollectionViewDelegate,UICollectionViewDataSou
             headerView.countContainerView.delegate = self
         }
         
-        
+        headerView.delegate = self
         return headerView
     }
     
@@ -199,6 +199,64 @@ extension ProfileViewController:UICollectionViewDelegate,UICollectionViewDataSou
     }
 }
 
+extension ProfileViewController:ProfileHeaderCollectionReusableViewDelegate{
+    func profileHeaderCollectionReusableViewDidTapProfilePicture(_ header: ProfileHeaderCollectionReusableView) {
+        
+        guard isCurrenUser else {
+            return
+        }
+        
+        let sheet = UIAlertController(title: "Change Picture",
+                                      message: "Update your photo to reflect your best self",
+                                      preferredStyle: .actionSheet)
+        
+        sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        sheet.addAction(UIAlertAction(title: "Take Photo", style: .default,handler: {[weak self] _ in
+            
+            DispatchQueue.main.async {
+                let picker = UIImagePickerController()
+                picker.allowsEditing = true
+                picker.sourceType = .camera
+                picker.delegate = self
+                self?.present(picker,animated: true)
+            }
+        }))
+        sheet.addAction(UIAlertAction(title: "Choose Photo From Your Library", style: .default,handler: {[weak self] _ in
+            
+            DispatchQueue.main.async {
+                let picker = UIImagePickerController()
+                picker.allowsEditing = true
+                picker.sourceType = .photoLibrary
+                picker.delegate = self
+                self?.present(picker,animated: true)
+            }
+            
+        }))
+        present(sheet,animated: true)
+    }
+    
+    
+}
+
+extension ProfileViewController: UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true)
+        guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
+            return
+        }
+        StorageManager.shared.uploadProfilePicture(username: user.username, data: image.pngData()) { [weak self]success in
+            if success {
+                self?.headerViewModel = nil
+                self?.posts = []
+                self?.fetchProfileInfo()
+            }
+        }
+    }
+}
+
 extension ProfileViewController:ProfileHeaderCountViewDelegate {
     func profileHeaderCountDidTapFollowers(_ containerView: ProfileHeaderCountView) {
         
@@ -208,8 +266,11 @@ extension ProfileViewController:ProfileHeaderCountViewDelegate {
         
     }
     
-    func profileHeaderCountDidTapPosts(_ containerView: ProfileHeaderCountView) {
-        
+    func profileHeaderCountDidTapPosts(_ containerView: ProfileHeaderCountView) { // eğer kullanıcının 18'den fazla postu varsa post'a tıklanınca otomatik olarak aşağıya kaydırması için
+        guard posts.count >= 18 else {
+            return
+        }
+        collectionView?.setContentOffset(CGPoint(x: 0, y: view.width * 0.7), animated: true)
     }
     
     func profileHeaderCountDidTapEditProfile(_ containerView: ProfileHeaderCountView) {
