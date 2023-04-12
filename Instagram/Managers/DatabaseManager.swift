@@ -351,6 +351,39 @@ final class DatabaseManager {
             completion(true)
         }
     }
+    /// Get followers for user
+    /// - Parameters:
+    ///   - username: Username to query
+    ///   - completion: Result callback
+    public func followers(for username: String, completion: @escaping ([String]) -> Void) {
+        let ref = database.collection("users")
+            .document(username)
+            .collection("followers")
+        ref.getDocuments { snapshot, error in
+            guard let usernames = snapshot?.documents.compactMap({ $0.documentID }), error == nil else {
+                completion([])
+                return
+            }
+            completion(usernames)
+        }
+    }
+
+    /// Get users that parameter username follows
+    /// - Parameters:
+    ///   - username: Query usernam
+    ///   - completion: Result callback
+    public func following(for username: String, completion: @escaping ([String]) -> Void) {
+        let ref = database.collection("users")
+            .document(username)
+            .collection("following")
+        ref.getDocuments { snapshot, error in
+            guard let usernames = snapshot?.documents.compactMap({ $0.documentID }), error == nil else {
+                completion([])
+                return
+            }
+            completion(usernames)
+        }
+    }
     
     // MARK: - User Info
     

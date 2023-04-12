@@ -258,19 +258,54 @@ extension ProfileViewController: UIImagePickerControllerDelegate,UINavigationCon
 }
 
 extension ProfileViewController:ProfileHeaderCountViewDelegate {
-    func profileHeaderCountDidTapFollowers(_ containerView: ProfileHeaderCountView) {
+    
+    func profileHeaderCountViewDidTapFollowers(_ containerView: ProfileHeaderCountView) {
+        let vc = ListViewController(type: .followers(user: user))
+        navigationController?.pushViewController(vc, animated: true)
         
     }
     
-    func profileHeaderCountDidTapFollowing(_ containerView: ProfileHeaderCountView) {
+    func profileHeaderCountViewDidTapFollowing(_ containerView: ProfileHeaderCountView) {
+        let vc = ListViewController(type: .following(user: user))
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func profileHeaderCountViewDidTapPosts(_ containerView: ProfileHeaderCountView) {
         
     }
+    
+    func profileHeaderCountViewDidTapEditProfile(_ containerView: ProfileHeaderCountView) {
+        
+    }
+    
+    func profileHeaderCountViewDidTapFollow(_ containerView: ProfileHeaderCountView) {
+        DatabaseManager.shared.updateRelationship(state: .follow, for: user.username) { [weak self] success in
+            if !success {
+                print("failed to follow")
+                DispatchQueue.main.async {
+                    self?.collectionView?.reloadData()
+                }
+            }
+        }
+    }
+    
+    func profileHeaderCountViewDidTapUnFollow(_ containerView: ProfileHeaderCountView) {
+        DatabaseManager.shared.updateRelationship(state: .unfollow, for: user.username) { [weak self] success in
+            if !success {
+                print("failed to follow")
+                DispatchQueue.main.async {
+                    self?.collectionView?.reloadData()
+                }
+            }
+        }
+    }
+
     
     func profileHeaderCountDidTapPosts(_ containerView: ProfileHeaderCountView) { // eğer kullanıcının 18'den fazla postu varsa post'a tıklanınca otomatik olarak aşağıya kaydırması için
         guard posts.count >= 18 else {
             return
         }
-        collectionView?.setContentOffset(CGPoint(x: 0, y: view.width * 0.7), animated: true)
+        collectionView?.setContentOffset(CGPoint(x: 0, y: view.width * 0.4), animated: true)
     }
     
     func profileHeaderCountDidTapEditProfile(_ containerView: ProfileHeaderCountView) {

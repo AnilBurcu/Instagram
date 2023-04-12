@@ -200,7 +200,7 @@ extension HomeViewController:PostLikesCollectionViewCellDelegate{
 }
 extension HomeViewController:PostCaptionCollectionViewCellDelegate{
     func PostCaptionCollectionViewCellDidTapCaption(_ cell: PostCaptionCollectionViewCell) {
-        let vc = ListViewController()
+        let vc = ListViewController(type: .likers(usernames: []))
         vc.title = "Liked By"
         navigationController?.pushViewController(vc, animated: true)
         print("Tapped Caption")

@@ -288,7 +288,7 @@ extension NotificationsViewController:LikeNotificationTableViewCellDelegate,Comm
         
         print("\n\n Request follow =\(isFollowing) of user=\(username)")
         
-                DatabaseManager.shared.updateRelationship(state: isFollowing ? .follow : .unfollow, for: username ) {
+        DatabaseManager.shared.updateRelationship(state: isFollowing ? .follow : .unfollow, for: username ) {
                     [weak self]success in
                     
                     if !success {
