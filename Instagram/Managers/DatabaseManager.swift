@@ -39,12 +39,18 @@ final class DatabaseManager {
     
 
     public func post(for username: String, completion: @escaping (Result <[Post],Error>) -> Void){
-        let ref = database.collection("user").document(username).collection("posts")
-        ref.getDocuments {snapshot, error in
-            guard let posts = snapshot?.documents.compactMap({ Post(with: $0.data())
-                
+        let ref = database.collection("user")
+            .document(username)
+            .collection("posts")
+        ref.getDocuments { snapshot, error in
+            guard let posts = snapshot?.documents.compactMap({
+                Post(with: $0.data())
+            }).sorted(by: {
+                return $0.date > $1.date
             }),
-                  error == nil else {return}
+            error == nil else {
+                return
+            }
             completion(.success(posts))
         }
     }
@@ -356,7 +362,7 @@ final class DatabaseManager {
     ///   - username: Username to query
     ///   - completion: Result callback
     public func followers(for username: String, completion: @escaping ([String]) -> Void) {
-        let ref = database.collection("users")
+        let ref = database.collection("user")
             .document(username)
             .collection("followers")
         ref.getDocuments { snapshot, error in
@@ -373,7 +379,7 @@ final class DatabaseManager {
     ///   - username: Query usernam
     ///   - completion: Result callback
     public func following(for username: String, completion: @escaping ([String]) -> Void) {
-        let ref = database.collection("users")
+        let ref = database.collection("user")
             .document(username)
             .collection("following")
         ref.getDocuments { snapshot, error in

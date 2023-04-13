@@ -10,6 +10,7 @@ import UIKit
 class ProfileViewController: UIViewController {
 
     private let user:User
+    
     private var isCurrenUser:Bool {
         return user.username.lowercased() == UserDefaults.standard.string(forKey: "username")?.lowercased() ?? ""
     }
@@ -18,6 +19,8 @@ class ProfileViewController: UIViewController {
     private var headerViewModel: ProfileHeaderViewModel?
     
     private var posts: [Post] = []
+    
+    private var observer:NSObjectProtocol?
     
     // MARK: Init
     
@@ -43,6 +46,13 @@ class ProfileViewController: UIViewController {
         configureCollectionView()
         
         fetchProfileInfo()
+        
+        if isCurrenUser {
+            observer = NotificationCenter.default.addObserver(forName: .didPostNotification, object: nil, queue: .main) {[weak self] _ in
+                self?.posts.removeAll()
+                self?.fetchProfileInfo()
+            }
+        }
     }
     
     override func viewDidLayoutSubviews() {
