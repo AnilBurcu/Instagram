@@ -97,7 +97,7 @@ final class ExploreViewController: UIViewController, UISearchResultsUpdating {
         (searchVC.searchResultsController as? SearchResultsViewController)?.delegate = self
         searchVC.searchBar.placeholder = "Search..."
         searchVC.searchResultsUpdater = self
-        navigationItem.searchController = searchVC // Navigation Item'ın search controller özelliğini kullanıyoruz
+        navigationItem.searchController = searchVC  // Navigation Item'ın search controller özelliğini kullanıyoruz
         view.addSubview(collectionView)
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -158,18 +158,11 @@ extension ExploreViewController: UICollectionViewDelegate, UICollectionViewDataS
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-//        let model = posts[indexPath.row]
-//        let vc = PostViewController(post: model.post, owner: model.user.username)
-//        navigationController?.pushViewController(vc, animated: true)
+        let model = posts[indexPath.row]
+        let vc = PostViewController(post: model.post, owner: model.user.username)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
-
-//extension ExploreViewController: SearchResultsViewControllerDelegate {
-//    func searchResultsViewController(_ vc: SearchResultsViewController, didSelectResultWith user: User) {
-//        let vc = ProfileViewController(user: user)
-//        navigationController?.pushViewController(vc, animated: true)
-//    }
-//}
 
 
 

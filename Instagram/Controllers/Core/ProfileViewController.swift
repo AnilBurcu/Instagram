@@ -22,6 +22,8 @@ class ProfileViewController: UIViewController {
     
     private var observer:NSObjectProtocol?
     
+
+    
     // MARK: Init
     
     init(user:User) {
@@ -46,7 +48,7 @@ class ProfileViewController: UIViewController {
         configureCollectionView()
         
         fetchProfileInfo()
-        
+     
         if isCurrenUser {
             observer = NotificationCenter.default.addObserver(forName: .didPostNotification, object: nil, queue: .main) {[weak self] _ in
                 self?.posts.removeAll()
@@ -58,6 +60,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         collectionView?.frame = view.bounds
+       
     }
     
     private func fetchProfileInfo() {
@@ -168,6 +171,8 @@ class ProfileViewController: UIViewController {
 
 }
 
+
+
 extension ProfileViewController:UICollectionViewDelegate,UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return posts.count
@@ -204,7 +209,7 @@ extension ProfileViewController:UICollectionViewDelegate,UICollectionViewDataSou
         collectionView.deselectItem(at: indexPath, animated: true)
         
         let post = posts[indexPath.row]
-        let vc = PostViewController(post: post)
+        let vc = PostViewController(post: post, owner: user.username)
         navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -285,7 +290,13 @@ extension ProfileViewController:ProfileHeaderCountViewDelegate {
     }
     
     func profileHeaderCountViewDidTapEditProfile(_ containerView: ProfileHeaderCountView) {
-        
+        let vc = EditProfileViewController()
+        vc.completion = { [weak self] in
+            self?.headerViewModel = nil
+            self?.fetchProfileInfo()
+        }
+        let navVC = UINavigationController(rootViewController: vc)
+        present(navVC, animated: true)
     }
     
     func profileHeaderCountViewDidTapFollow(_ containerView: ProfileHeaderCountView) {

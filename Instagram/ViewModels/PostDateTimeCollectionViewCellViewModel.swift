@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct PostDateTimeCollectionViewCellViewModel {
+struct PostDatetimeCollectionViewCellViewModel {
     let date: Date
 }

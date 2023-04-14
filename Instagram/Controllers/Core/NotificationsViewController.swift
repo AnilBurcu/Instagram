@@ -323,7 +323,7 @@ extension NotificationsViewController:LikeNotificationTableViewCellDelegate,Comm
                 self?.present(alert,animated: true)
                 return
             }
-            let vc = PostViewController(post: post)
+            let vc = PostViewController(post: post, owner: username)
             self?.navigationController?.pushViewController(vc, animated: true)
         }
     }

@@ -15,9 +15,9 @@ final class DatabaseManager {
     
     private init() {}
     
-    let database = Firestore.firestore()
+    private let database = Firestore.firestore()
     
-    
+
     public func findUsers(
         with usernamePrefix: String,
         completion: @escaping ([User]) -> Void
@@ -135,7 +135,7 @@ final class DatabaseManager {
                 group.enter()
 
                 let username = user.username
-                let postsRef = self.database.collection("users/\(username)/posts")
+                let postsRef = self.database.collection("user/\(username)/posts")
 
                 postsRef.getDocuments { snapshot, error in
 
@@ -414,7 +414,7 @@ final class DatabaseManager {
             completion(userInfo)
         }
     }
-
+    
     /// Set user info
     /// - Parameters:
     ///   - userInfo: UserInfo model
@@ -427,7 +427,7 @@ final class DatabaseManager {
               let data = userInfo.asDictionary() else {
             return
         }
-
+        
         let ref = database.collection("user")
             .document(username)
             .collection("information")
@@ -437,4 +437,115 @@ final class DatabaseManager {
         }
     }
     
+    // MARK: - Comment
+
+    /// Create a comment
+    /// - Parameters:
+    ///   - comment: Comment mmodel
+    ///   - postID: post id
+    ///   - owner: username who owns post
+    ///   - completion: Result callback
+    public func createComments(
+        comment: Comment,
+        postID: String,
+        owner: String,
+        completion: @escaping (Bool) -> Void
+    ) {
+        let newIdentifier = "\(postID)_\(comment.username)_\(Date().timeIntervalSince1970)_\(Int.random(in: 0...1000))"
+        let ref = database.collection("user")
+            .document(owner)
+            .collection("posts")
+            .document(postID)
+            .collection("comments")
+            .document(newIdentifier)
+        guard let data = comment.asDictionary() else { return }
+        ref.setData(data) { error in
+            completion(error == nil)
+        }
+    }
+    
+    /// Get comments for given post
+    /// - Parameters:
+    ///   - postID: Post id to query
+    ///   - owner: Username who owns post
+    ///   - completion: Result callback
+    public func getComments(
+        postID: String,
+        owner: String,
+        completion: @escaping ([Comment]) -> Void
+    ) {
+        let ref = database.collection("user")
+            .document(owner)
+            .collection("posts")
+            .document(postID)
+            .collection("comments")
+        ref.getDocuments { snapshot, error in
+            guard let comments = snapshot?.documents.compactMap({
+                Comment(with: $0.data())
+            }),
+                  error == nil else {
+                completion([])
+                return
+            }
+            
+            completion(comments)
+        }
+    }
+    
+    // MARK: - Liking
+
+    /// Like states that are supported
+    enum LikeState {
+        case like
+        case unlike
+    }
+
+    /// Update like state on post
+    /// - Parameters:
+    ///   - state: State to update to
+    ///   - postID: Post to update for
+    ///   - owner: Owner username of post
+    ///   - completion: Result callback
+    public func updateLikeState(
+        state: LikeState,
+        postID: String,
+        owner: String,
+        completion: @escaping (Bool) -> Void
+    ) {
+        guard let currentUsername = UserDefaults.standard.string(forKey: "username") else { return }
+        let ref = database.collection("user")
+            .document(owner)
+            .collection("posts")
+            .document(postID)
+        getPost(with: postID, from: owner) { post in
+            guard var post = post else {
+                completion(false)
+                return
+            }
+
+            switch state {
+            case .like:
+                if !post.likers.contains(currentUsername) {
+                    post.likers.append(currentUsername)
+                }
+            case .unlike:
+                post.likers.removeAll(where: { $0 == currentUsername })
+            }
+
+            guard let data = post.asDictionary() else {
+                completion(false)
+                return
+            }
+            ref.setData(data) { error in
+                completion(error == nil)
+            }
+        }
+    }
+    
 }
+
+
+
+
+
+

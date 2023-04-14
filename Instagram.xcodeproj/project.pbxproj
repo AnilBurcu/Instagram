@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1811D2B129E8182700DD9E8A /* SinglePostCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1811D2B029E8182700DD9E8A /* SinglePostCellType.swift */; };
+		1811D2B329E8186300DD9E8A /* CommentBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1811D2B229E8186300DD9E8A /* CommentBarView.swift */; };
+		1811D2B529E8190500DD9E8A /* CommentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1811D2B429E8190500DD9E8A /* CommentCollectionViewCell.swift */; };
+		1811D2B729E819FD00DD9E8A /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1811D2B629E819FD00DD9E8A /* Comment.swift */; };
 		183190D029E4357300FDDF5D /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183190CF29E4357300FDDF5D /* UserInfo.swift */; };
 		183190D229E4370F00FDDF5D /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183190D129E4370F00FDDF5D /* EditProfileViewController.swift */; };
 		1859C8C329CB17D1000E2BD3 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859C8C229CB17D1000E2BD3 /* ExploreViewController.swift */; };
@@ -57,6 +61,7 @@
 		187C462929CB115D0030A73A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 187C462729CB115D0030A73A /* LaunchScreen.storyboard */; };
 		188F84CF29DC3B710012C3A6 /* ProfileHeaderCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188F84CE29DC3B710012C3A6 /* ProfileHeaderCountView.swift */; };
 		188F84D429DC4C6D0012C3A6 /* ProfileHeaderCountViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188F84D329DC4C6D0012C3A6 /* ProfileHeaderCountViewViewModel.swift */; };
+		18995D1A29E80E4D00CBF90F /* SettingsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18995D1929E80E4D00CBF90F /* SettingsModels.swift */; };
 		18ACF43629D4213E00B5CFC5 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACF43529D4213E00B5CFC5 /* SearchResultsViewController.swift */; };
 		18ACF43929D43F0300B5CFC5 /* FollowNotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACF43829D43F0300B5CFC5 /* FollowNotificationTableViewCell.swift */; };
 		18ACF43B29D43F2D00B5CFC5 /* LikeNotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ACF43A29D43F2D00B5CFC5 /* LikeNotificationTableViewCell.swift */; };
@@ -73,6 +78,10 @@
 /* Begin PBXFileReference section */
 		0030BF651F8C1A29C13B05D5 /* Pods_Instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A5FD8F33FD830B528739A0F /* Pods-Instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.release.xcconfig"; path = "Target Support Files/Pods-Instagram/Pods-Instagram.release.xcconfig"; sourceTree = "<group>"; };
+		1811D2B029E8182700DD9E8A /* SinglePostCellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePostCellType.swift; sourceTree = "<group>"; };
+		1811D2B229E8186300DD9E8A /* CommentBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentBarView.swift; sourceTree = "<group>"; };
+		1811D2B429E8190500DD9E8A /* CommentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCollectionViewCell.swift; sourceTree = "<group>"; };
+		1811D2B629E819FD00DD9E8A /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		183190CF29E4357300FDDF5D /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		183190D129E4370F00FDDF5D /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		1859C8C229CB17D1000E2BD3 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +134,7 @@
 		187C462A29CB115D0030A73A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		188F84CE29DC3B710012C3A6 /* ProfileHeaderCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderCountView.swift; sourceTree = "<group>"; };
 		188F84D329DC4C6D0012C3A6 /* ProfileHeaderCountViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderCountViewViewModel.swift; sourceTree = "<group>"; };
+		18995D1929E80E4D00CBF90F /* SettingsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModels.swift; sourceTree = "<group>"; };
 		18ACF43529D4213E00B5CFC5 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		18ACF43829D43F0300B5CFC5 /* FollowNotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowNotificationTableViewCell.swift; sourceTree = "<group>"; };
 		18ACF43A29D43F2D00B5CFC5 /* LikeNotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeNotificationTableViewCell.swift; sourceTree = "<group>"; };
@@ -173,6 +183,8 @@
 				188F84CE29DC3B710012C3A6 /* ProfileHeaderCountView.swift */,
 				1861D13129E6C4E900C46416 /* IGFollowButton.swift */,
 				1861D13329E6D5D000C46416 /* ListUserTableViewCell.swift */,
+				1811D2B229E8186300DD9E8A /* CommentBarView.swift */,
+				1811D2B429E8190500DD9E8A /* CommentCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -187,6 +199,9 @@
 				185A4BDF29CDA6B2003B2D21 /* HomeFeedCellType.swift */,
 				18F7902A29D4489500D55755 /* NotificationCelltype.swift */,
 				183190CF29E4357300FDDF5D /* UserInfo.swift */,
+				18995D1929E80E4D00CBF90F /* SettingsModels.swift */,
+				1811D2B029E8182700DD9E8A /* SinglePostCellType.swift */,
+				1811D2B629E819FD00DD9E8A /* Comment.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -452,25 +467,30 @@
 			files = (
 				1859C8D329CB1889000E2BD3 /* CaptionViewController.swift in Sources */,
 				185A4BEB29CDABF3003B2D21 /* PostLikesCollectionViewCell.swift in Sources */,
+				18995D1A29E80E4D00CBF90F /* SettingsModels.swift in Sources */,
 				1859C8CC29CB182E000E2BD3 /* TabBarViewController.swift in Sources */,
 				188F84CF29DC3B710012C3A6 /* ProfileHeaderCountView.swift in Sources */,
 				185AC40E29D703CF00D417DB /* ProfileHeaderCollectionReusableView.swift in Sources */,
+				1811D2B329E8186300DD9E8A /* CommentBarView.swift in Sources */,
 				1859C8E129CB1903000E2BD3 /* Notification.swift in Sources */,
 				1859C8D529CB1898000E2BD3 /* ListViewController.swift in Sources */,
 				1861D13229E6C4E900C46416 /* IGFollowButton.swift in Sources */,
 				1859C8E729CB193A000E2BD3 /* StorageManager.swift in Sources */,
 				18ACF43929D43F0300B5CFC5 /* FollowNotificationTableViewCell.swift in Sources */,
 				18ACF43D29D43F4500B5CFC5 /* CommentNotificationTableViewCell.swift in Sources */,
+				1811D2B529E8190500DD9E8A /* CommentCollectionViewCell.swift in Sources */,
 				185A4BE529CDAB97003B2D21 /* PostCollectionViewCell.swift in Sources */,
 				1859C8D729CB18A1000E2BD3 /* PostViewController.swift in Sources */,
 				1859C8C329CB17D1000E2BD3 /* ExploreViewController.swift in Sources */,
 				185A4BE929CDABCD003B2D21 /* PostActionsCollectionViewCell.swift in Sources */,
 				1859C8C529CB17DF000E2BD3 /* CameraViewController.swift in Sources */,
 				1859C8E929CB1949000E2BD3 /* AnalyticsManager.swift in Sources */,
+				1811D2B129E8182700DD9E8A /* SinglePostCellType.swift in Sources */,
 				187C462129CB115D0030A73A /* HomeViewController.swift in Sources */,
 				1859C8D129CB187C000E2BD3 /* SignUpViewController.swift in Sources */,
 				1859C8DB29CB18DC000E2BD3 /* User.swift in Sources */,
 				1859C8C729CB17E7000E2BD3 /* NotificationsViewController.swift in Sources */,
+				1811D2B729E819FD00DD9E8A /* Comment.swift in Sources */,
 				18F7902D29D448D200D55755 /* NotificationCellViewModels.swift in Sources */,
 				18D19BC029CB2E9100017DA2 /* SignInHeaderView.swift in Sources */,
 				1861D13629E6D80E00C46416 /* ListUserTableViewCellViewModel.swift in Sources */,
@@ -574,7 +594,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -628,7 +648,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

@@ -37,7 +37,7 @@ class PostDateTimeCollectionViewCell: UICollectionViewCell {
         super.prepareForReuse()
         label.text = nil
     }
-    func configure(with viewModel: PostDateTimeCollectionViewCellViewModel){
+    func configure(with viewModel: PostDatetimeCollectionViewCellViewModel){
         let date = viewModel.date
         label.text = .date(from: date)
     }

@@ -172,7 +172,7 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
                         username: username,
                         caption: model.caption)),
                 .timestamp(
-                    viewModel: PostDateTimeCollectionViewCellViewModel(
+                    viewModel: PostDatetimeCollectionViewCellViewModel(
                         date: DateFormatter.formatter.date(from: model.postedDate) ?? Date()
                     )
                 )
@@ -214,7 +214,7 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
                 for: indexPath) as? PostCollectionViewCell else {
                     fatalError()
              }
-            cell.configure(with: viewModel)
+            cell.configure(with: viewModel, index: indexPath.section)
             cell.delegate = self
             return cell
         case .actions(viewModel: let viewModel):
@@ -233,7 +233,7 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
                 for: indexPath) as? PostLikesCollectionViewCell else {
                     fatalError()
              }
-            cell.configure(with: viewModel)
+            cell.configure(with: viewModel, index: indexPath.section)
             cell.delegate = self
             return cell
         case .caption(viewModel: let viewModel):
@@ -262,19 +262,20 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
 
 }
 extension HomeViewController:PostLikesCollectionViewCellDelegate{
-    func postLikesCollectionViewCellDidTapLikeCount(_ cell: PostLikesCollectionViewCell) {
+    func postLikesCollectionViewCellDidTapLikeCount(_ cell: PostLikesCollectionViewCell,index: Int) {
         print("Tapped Likers Count")
     }
     
     
 }
 extension HomeViewController:PostCaptionCollectionViewCellDelegate{
-    func PostCaptionCollectionViewCellDidTapCaption(_ cell: PostCaptionCollectionViewCell) {
+    func postCaptionCollectionViewCellDidTapCaptioon(_ cell: PostCaptionCollectionViewCell) {
         let vc = ListViewController(type: .likers(usernames: []))
         vc.title = "Liked By"
         navigationController?.pushViewController(vc, animated: true)
-        print("Tapped Caption")
+        
     }
+
     
     
 }
@@ -288,10 +289,13 @@ extension HomeViewController:PostActionsCollectionViewCellDelegate{
     }
     
     func postActionsCollectionViewCellDidTapComment(_ cell: PostActionsCollectionViewCell, index: Int) {
-        //        let vc = PostViewController(post: <#T##Post#>)
-        //        vc.title = "Post"
-        //        navigationController?.pushViewController(vc, animated: true)
-        //        print("Comment")
+//        AnalyticsManager.shared.logFeedInteraction(.comment)
+        let tuple = allPosts[index]
+//        HapticManager.shared.vibrateForSelection()
+        let vc = PostViewController(post: tuple.post, owner: tuple.owner)
+        vc.title = "Post"
+        navigationController?.pushViewController(vc, animated: true)
+                
     }
     
     func postActionsCollectionViewCellDidTapShare(_ cell: PostActionsCollectionViewCell, index: Int) {
@@ -313,7 +317,7 @@ extension HomeViewController:PostActionsCollectionViewCellDelegate{
     }}
 
 extension HomeViewController:PostCollectionViewCellDelegate {
-    func postCollectionViewCellDidLike(_ cell: PostCollectionViewCell) {
+    func postCollectionViewCellDidLike(_ cell: PostCollectionViewCell,index: Int) {
         print("Did Tap to Like")
     }
     

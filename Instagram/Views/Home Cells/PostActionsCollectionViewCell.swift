@@ -106,12 +106,12 @@ class PostActionsCollectionViewCell: UICollectionViewCell {
     }
     func configure(
         with viewModel: PostActionsCollectionViewCellViewModel,
-        index: Int
-    ){
+        index: Int) {
         self.index = index
         isLiked = viewModel.isLiked
         if viewModel.isLiked {
-            let image = UIImage(systemName: "heart.fill",withConfiguration: UIImage.SymbolConfiguration(pointSize: 44))
+            let image = UIImage(systemName: "suit.heart.fill",
+                                withConfiguration: UIImage.SymbolConfiguration(pointSize: 44))
             likeButton.setImage(image, for: .normal)
             likeButton.tintColor = .systemRed
         }
